@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Показать юзера по ID</title>
+</head>
+<body>
+<div>
+    <table {
+           th:border="4"
+           th:width="300" }>
+        <br>
+        <h1>Выбранный пользователь</h1>
+        <tr>
+            <th>Id</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Возраст</th>
+
+        </tr>
+        <td th:text="${user.getId}"/>
+        <td th:text="${user.getName}"/>
+        <td th:text="${user.getLastName()}"/>
+        <td th:text="${user.getAge}"/>
+        </tr>
+    </table>
+
+</div>
+
+
+<a th:href="@{/{id}/edit(id=${user.getId()})}">Edit</a>
+
+<form th:action="@{/{id}(id=${user.id})}" th:method="DELETE">
+    <input type="submit" value="Delete">
+
+</form>
+</body>
+</html>
