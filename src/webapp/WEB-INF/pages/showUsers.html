@@ -16,15 +16,25 @@
         <th>Имя</th>
         <th>Фамилия</th>
         <th>Возраст</th>
+        <th>Удалить</th>
     </tr>
     <tr th:each="user : ${user}">
         <td th:text="${user.getId}"/>
         <td th:text="${user.getName}"/>
         <td th:text="${user.getLastName()}"/>
         <td th:text="${user.getAge}"/>
+        <td>
+            <form th:action="@{/{id}/del(id=${user.getId()})}"
+                  th:method="DELETE">
+                <input type="submit" value="Удалить">
+            </form>
+
+        </td>
     </tr>
 </table>
 <br/>
 <a href="/new">Добавить нового пользователя</a>
+
+
 </div>
 </body>
