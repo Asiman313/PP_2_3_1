@@ -5,8 +5,13 @@
     <meta charset="UTF-8">
     <title></title>
 </head>
+<style>
+    table {
+        margin: auto;
+    }
+</style>
 <body>
-<h1>Добавление пользователя</h1>
+<h1 style="text-align: center">Добавление пользователя</h1>
 <form th:method="POST" th:action="@{/}" th:object="${user}">
     <label for="name">Введите имя: </label>
     <input type="text" th:field="*{name}" id="name"/>
@@ -20,7 +25,9 @@
     <input type="text" th:field="*{age}" id="age"/>
     <br/>
 
+
     <input type="submit" value="Добавить!"/>
+
 </form>
 </body>
 </html>

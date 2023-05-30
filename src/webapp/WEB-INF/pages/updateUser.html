@@ -5,7 +5,7 @@
     <title>Update user</title>
 </head>
 <body>
-<h1>Изменение данных пользователя</h1>
+<h1 style="text-align: center">Изменение данных пользователя</h1>
 <form action="#" th:action="@{/{id}(id=${user.getId()})}" th:object="${user}" th:method="PATCH">
 
     <label for="name">Введите имя: </label>
@@ -20,7 +20,9 @@
     <input type="text" th:field="*{age}" id="age"/>
     <br/>
 
+    <div style="text-align: center">
     <input type="submit" value="Обновить!"/>
+        </div>
 </form>
 </body>
 </html>

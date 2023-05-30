@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Показать юзера по ID</title>
+    <style>
+        table {
+            margin: auto;
+        }
+    </style>
 </head>
 <body>
 <div>
@@ -10,13 +15,12 @@
            th:border="4"
            th:width="300" }>
         <br>
-        <h1>Выбранный пользователь</h1>
+        <h1 style="text-align: center">Выбранный пользователь</h1>
         <tr>
             <th>Id</th>
             <th>Имя</th>
             <th>Фамилия</th>
             <th>Возраст</th>
-
         </tr>
         <td th:text="${user.getId}"/>
         <td th:text="${user.getName}"/>
@@ -27,12 +31,17 @@
 
 </div>
 
-
-<a th:href="@{/{id}/edit(id=${user.getId()})}">Edit</a>
-
-<form th:action="@{/{id}/del(id=${user.id})}" th:method="DELETE">
-    <input type="submit" value="Delete">
-
+<div style="text-align: center">
+<form th:action="@{/{id}/edit(id=${user.getId()})}" th:method="GET">
+    <input style="margin-top: 10px" type="submit" value="Отредактировать">
 </form>
+</div>
+
+<div style="text-align: center">
+<form th:action="@{/{id}/del(id=${user.id})}" th:method="DELETE">
+    <input style="margin-top: 10px" type="submit" value="Удалить">
+</form>
+</div>
+
 </body>
 </html>

@@ -5,18 +5,24 @@
     <meta charset="UTF-8">
     <title>Таблица пользователей</title>
 </head>
+<style>
+    table {
+        margin: auto;
+    }
+</style>
 <body>
+<div class="flex-box">
 <table {
        th:border="4"
        th:width="300" }>
-    <h1>Таблица пользователей</h1>
-    <br>
+    <h1 style="text-align: center">Таблица пользователей</h1>
     <tr>
         <th>Id</th>
         <th>Имя</th>
         <th>Фамилия</th>
         <th>Возраст</th>
         <th>Удалить</th>
+        <th>Свойства</th>
     </tr>
     <tr th:each="user : ${user}">
         <td th:text="${user.getId}"/>
@@ -28,13 +34,22 @@
                   th:method="DELETE">
                 <input type="submit" value="Удалить">
             </form>
-
+        </td>
+        <td>
+            <form th:action="@{/{id}(id=${user.getId()})}"
+                  th:method="GET">
+                <input type="submit" value="Свойства">
+            </form>
         </td>
     </tr>
 </table>
 <br/>
-<a href="/new">Добавить нового пользователя</a>
-
+    <div style="text-align: center">
+<!--<a href="/new">Добавить нового пользователя</a>-->
+        <form th:action="@{/new}" th:method="GET">
+            <input type="submit" value="Добавить нового пользователя">
+        </form>
+    </div>
 
 </div>
 </body>
