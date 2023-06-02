@@ -5,7 +5,6 @@ import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import javax.servlet.Filter;
-import javax.servlet.ServletContext;
 
 
 public class AppInit extends AbstractAnnotationConfigDispatcherServletInitializer {
