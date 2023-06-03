@@ -18,7 +18,6 @@ import web.service.UserService;
 @RequestMapping("/")
 public class UserController {
 
-    @Autowired
     private final UserService userService;
 
     public UserController(UserService userService) {
@@ -32,25 +31,26 @@ public class UserController {
     }
 
     @GetMapping("/new")
-    public String newUser(Model model) {
-        model.addAttribute("user", new User());
+    public String newUser(@ModelAttribute User user) {
         return "newUser";
     }
 
     @PostMapping()
-    public String create(@ModelAttribute("user") User user) {
-        userService.createUser(user);
+    public String create(@ModelAttribute() User user) {
+        if(user.getName() != null && user.getLastName() != null && user.getAge() > 0) {
+            userService.createUser(user);
+        }
         return "redirect:/";
     }
 
     @GetMapping("/{id}")
-    public String read(@PathVariable("id") int id, Model model) {
+    public String read(@PathVariable() long id, Model model) {
         model.addAttribute("user", userService.readUser(id));
         return "user";
     }
 
     @GetMapping("/{id}/edit")
-    public String edit(Model model, @PathVariable("id") int id) {
+    public String edit(Model model, @PathVariable() long id) {
         model.addAttribute("user", userService.readUser(id));
         return "updateUser";
     }
@@ -62,7 +62,7 @@ public class UserController {
     }
 
     @DeleteMapping("{id}/del")
-    public String deleteUser(@PathVariable("id") long id) {
+    public String deleteUser(@PathVariable() long id) {
         userService.deleteUser(id);
         return "redirect:/";
     }

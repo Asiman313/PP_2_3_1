@@ -14,4 +14,5 @@ public interface UserService {
     User readUser(long id);
 
     void deleteUser(long id);
+
 }

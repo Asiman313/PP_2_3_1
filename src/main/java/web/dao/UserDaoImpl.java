@@ -20,13 +20,11 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void createUser(User user) {
-        System.out.println("Создаю юзера");
         entityManager.persist(user);
     }
 
     @Override
     public void updateUser(User user) {
-        System.out.println("Апдейт");
         entityManager.merge(user);
     }
 
@@ -37,8 +35,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void deleteUser(long id) {
-        System.out.println("Удаляю");
-        User user = entityManager.find(User.class, id);
+        User user = entityManager.getReference(User.class, id);
         entityManager.remove(user);
     }
 }

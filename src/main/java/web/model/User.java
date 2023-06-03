@@ -5,9 +5,10 @@ import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Column;
+import javax.persistence.Table;
 
 @Entity
-@javax.persistence.Table(name = "User")
+@Table(name = "User")
 public class User {
 
     @Id
@@ -65,8 +66,4 @@ public class User {
                 ", age=" + age +
                 '}';
     }
-
-    public User() {
-    }
-
 }

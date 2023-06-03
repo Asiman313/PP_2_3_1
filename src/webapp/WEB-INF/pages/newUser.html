@@ -14,15 +14,15 @@
 <h1 style="text-align: center">Добавление пользователя</h1>
 <form th:method="POST" th:action="@{/}" th:object="${user}">
     <label for="name">Введите имя: </label>
-    <input type="text" th:field="*{name}" id="name"/>
+    <input type="text" th:field="*{name}" id="name" required/>
     <br/>
 
     <label for="lastName">Введите фамилию: </label>
-    <input type="text" th:field="*{lastName}" id="lastName"/>
+    <input type="text" th:field="*{lastName}" id="lastName" required/>
     <br/>
 
     <label for="age">Введите возраст: </label>
-    <input type="text" th:field="*{age}" id="age"/>
+    <input type="number" th:field="*{age}" id="age" min="12" required/>
     <br/>
 
 
